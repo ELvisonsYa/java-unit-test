@@ -1,4 +1,4 @@
-@RunWith(Parameterized.class) // Напиши аннотацию для параметризованных тестов
+@RunWith(Parameterized.class) 
 public class CheckIsAdultTest {
 	
   private final int age;
@@ -9,13 +9,13 @@ public class CheckIsAdultTest {
       this.result = result;
   }
 
-  @Parameterized.Parameters // Пометь метод аннотацией для параметров
+  @Parameterized.Parameters 
   public static Object[][] getTextData() {
 	return new Object[][] {
         {17, false},
         {18, true},
         {19, true},
-        {21, true},// Заполни массив тестовыми данными и ожидаемым результатом
+        {21, true},
     };
   }
 
@@ -23,7 +23,6 @@ public class CheckIsAdultTest {
   public void checkIsAdultWhenAgeThenResult() {
 	Program program = new Program();
     boolean isAdult = program.checkIsAdult(age);
-	// Сравни полученный и ожидаемый результаты, не забудь про сообщение об ошибке
     assertEquals("Ошибка: ожидаемыйй результат не совпадает с фактическим", result, isAdult);
 	}
 }
